@@ -1,0 +1,15 @@
+ros2 pkg list - shows list of packages.
+
+ros2 pkg executables - shows all the executable programs(default) of all the packages.
+
+ros2 pkg executables turtlesim - shows list of executables from turtlesim package.
+
+TO RUN ANY PACKAGE:
+
+ros2 run <packagename> <executablename>
+e.g. ros2 run turtlesim turtlesim_node - runs the turtlesim_node of turtlesim package.
+
+ros2 run -h - to find help running packages/executables.
+
+
+
