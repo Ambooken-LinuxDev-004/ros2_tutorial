@@ -13,4 +13,12 @@ ros2 run -h - to find help running packages/executables.
 
 ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel - to remap/change arguments to control turtle2.
 
+ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle - reassign name of turtlesim node.
+
+ros2 node info <node_name> - to access more info on node.
+
+
+
+
+
 
