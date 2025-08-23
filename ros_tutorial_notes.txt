@@ -17,6 +17,44 @@ ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle - reassig
 
 ros2 node info <node_name> - to access more info on node.
 
+ros2 run rqt_graph rqt_graph - to run rqt graph.
+
+ros2 topic list - shows list of topics.
+
+ros2 topic list -t - shows type of topic.
+
+ros2 topic find <topic_type> - to list available topics of given type.
+
+ros2 topic echo <topic_name> - to see data being published on a topic.
+
+ros2 topic info <topic_name> - to check number of publishers and subscribers.
+
+NOTE :- Publishers and subscribers must send and receive the same type of message to communicate.
+e.g geometry_msgs/msg/Twist - This means that in the package geometry_msgs there is a msg called Twist.
+
+ros2 topic find geometry_msgs/msg/Twist - To find command outputs topics available when given the message type.
+
+
+ros2 interface show <msg_type> - to learn specifically, what structure of data the message expects.
+e.g. ros2 interface show geometry_msgs/msg/Twist
+
+ros2 topic pub <topic_name> <msg_type> '<args>' - To publish data to a topic directly from the command line.
+e.g. ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}" - To publish data to your topic only once.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
