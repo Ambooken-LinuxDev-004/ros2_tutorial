@@ -81,6 +81,20 @@ e.g. ros2 param load /turtlesim turtlesim.yaml
 ros2 run <package_name> <executable_name> --ros-args --params-file <file_name> - To start the same node using your saved parameter values.
 e.g. ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
+ros2 node info /turtlesim - To see the list of actions a node provides.
+
+ros2 action list - To identify all the actions in the ROS graph.
+
+ros2 action list -t - To find the type of action(similar to topics & services).
+
+ros2 action info /turtle1/rotate_absolute - To further introspect the action.
+
+ros2 interface show turtlesim/action/RotateAbsolute - Shows the structure of the action type.
+
+ros2 action send_goal <action_name> <action_type> <values> - To send an action from command line.
+e.g. ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
+
+
 
 
 
