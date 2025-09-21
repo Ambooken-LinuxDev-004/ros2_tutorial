@@ -95,6 +95,31 @@ ros2 action send_goal <action_name> <action_type> <values> - To send an action f
 e.g. ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 
 
+ros2 run rqt_console rqt_console - Nodes use logs to output messages concerning events and status in a variety of ways. Their content is usually informational, for the sake of the user.
+
+** ROS 2 LOGGER LEVELS **
+
+Fatal - messages indicate the system is going to terminate to try to protect itself from detriment.
+
+Error - messages indicate significant issues that won’t necessarily damage the system, but are preventing it from functioning properly.
+
+Warn - messages indicate unexpected activity or non-ideal results that might represent a deeper issue, but don’t harm functionality outright.
+
+Info - messages indicate event and status updates that serve as a visual verification that the system is running as expected.
+
+Debug - messages detail the entire step-by-step process of the system execution.
+
+ros2 run turtlesim turtlesim_node --ros-args --log-level WARN - To set the default logger level when you first run node using remapping.
+
+
+
+** ros2 launch - start up your entire system(all nodes and their configurations at once).
+e.g. ros2 launch turtlesim multisim.launch.py  - launch multiple(2) turtlesim nodes.
+
+
+
+
+
 
 
 
