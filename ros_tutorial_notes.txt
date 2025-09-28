@@ -133,7 +133,23 @@ e.g. ros2 bag info subset
 NOTE:- ros2 topic hz /turtle1/pose - To get an idea of how often position data is published.
 
 
+ROS2 Workspace - a directory with a particular structure.
+The build directory will be where intermediate files are stored. For each package a subfolder will be created in which e.g. CMake is being invoked.
 
+The install directory is where each package will be installed to. By default each package will be installed into a separate subdirectory.
+
+The log directory contains various logging information about each colcon invocation.
+
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws - create a directory (ros2_ws) to contain our workspace.
+
+colcon build --symlink-install - To create symbolic links(symlinks) to the original files in the source or build directories instead of making copies.
+
+source install/setup.bash - To add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment.
+
+
+echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc - The command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_ws/src/some_ros_package.
 
 
 
