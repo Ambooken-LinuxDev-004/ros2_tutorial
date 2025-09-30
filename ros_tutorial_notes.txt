@@ -1,10 +1,16 @@
+                                        ################# TO LIST PACKAGES ################
+
+
 ros2 pkg list - shows list of packages.
 
 ros2 pkg executables - shows all the executable programs(default) of all the packages.
 
 ros2 pkg executables turtlesim - shows list of executables from turtlesim package.
 
-TO RUN ANY PACKAGE:
+
+
+                                        ################# TO RUN ANY PACKAGE #################
+
 
 ros2 run <packagename> <executablename>
 e.g. ros2 run turtlesim turtlesim_node - runs the turtlesim_node of turtlesim package.
@@ -19,7 +25,12 @@ ros2 node info <node_name> - to access more info on node.
 
 ros2 run rqt_graph rqt_graph - to run rqt graph.
 
-*** ros2 topic list - shows list of topics. *** 
+
+
+                                        ################# TOPIC #################
+
+
+ros2 topic list - shows list of topics. *** 
 
 ros2 topic list -t - shows type of topic.
 
@@ -44,6 +55,10 @@ e.g. ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, 
 ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}" - To publish data to your topic only once.
 
 
+
+                                        ################# SERVICE #################
+
+
 ros2 service list - will return a list of all the services currently active in the system.
 
 ros2 service type <service_name> - To find out the type of a service.
@@ -61,6 +76,10 @@ ros2 service call <service_name> <service_type> <arguments> - to find a serviceâ
 (The <arguments> part is optional.)
 
 e.g. ros2 service call /clear std_srvs/srv/Empty - This command will clear the turtlesim window of any lines your turtle has drawn.
+
+
+
+                                        ################# PARAMETERS #################
 
 
 ros2 param list - To see the parameters belonging to your nodes.
@@ -81,6 +100,10 @@ e.g. ros2 param load /turtlesim turtlesim.yaml
 ros2 run <package_name> <executable_name> --ros-args --params-file <file_name> - To start the same node using your saved parameter values.
 e.g. ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
+
+
+                                        ################# ACTION #################
+
 ros2 node info /turtlesim - To see the list of actions a node provides.
 
 ros2 action list - To identify all the actions in the ROS graph.
@@ -95,9 +118,11 @@ ros2 action send_goal <action_name> <action_type> <values> - To send an action f
 e.g. ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 
 
-ros2 run rqt_console rqt_console - Nodes use logs to output messages concerning events and status in a variety of ways. Their content is usually informational, for the sake of the user.
 
-** ROS 2 LOGGER LEVELS **
+                                        ################# ROS 2 LOGGER LEVELS #################
+
+
+ros2 run rqt_console rqt_console - Nodes use logs to output messages concerning events and status in a variety of ways. Their content is usually informational, for the sake of the user.
 
 Fatal - messages indicate the system is going to terminate to try to protect itself from detriment.
 
@@ -113,8 +138,15 @@ ros2 run turtlesim turtlesim_node --ros-args --log-level WARN - To set the defau
 
 
 
-** ros2 launch - start up your entire system(all nodes and their configurations at once).
+                                        ################# ROS 2 LAUNCH #################
+
+
+ros2 launch - start up your entire system(all nodes and their configurations at once).
 e.g. ros2 launch turtlesim multisim.launch.py  - launch multiple(2) turtlesim nodes.
+
+
+
+                                        ################# ROS 2 BAG #################
 
 
 ros2 bag - a command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments.
@@ -133,6 +165,10 @@ e.g. ros2 bag info subset
 NOTE:- ros2 topic hz /turtle1/pose - To get an idea of how often position data is published.
 
 
+
+                                        ################# WORKSPACE #################
+
+
 ROS2 Workspace - a directory with a particular structure.
 The build directory will be where intermediate files are stored. For each package a subfolder will be created in which e.g. CMake is being invoked.
 
@@ -147,14 +183,20 @@ colcon build --symlink-install - To create symbolic links(symlinks) to the origi
 
 source install/setup.bash - To add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment.
 
-
 echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
-echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc - The command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_ws/src/some_ros_package.
+echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
 
+The above command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_ws/src/some_ros_package.
 
 colcon build - To build your packages.
 
+
+
+                                    ################# PACKAGE #################
+
+
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name> - for creating a new package in ROS 2.
+
 NOTE:- ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name> - for creating a Python based package.
 e.g. ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
 
@@ -163,6 +205,12 @@ e.g. colcon build --packages-select my_package
 
  **** NOTE: AFTER BUILDING A NEW PACKAGE, MAKE SURE TO SOURCE IT, FOR USING THAT PACKAGE IN A NEW TERMINAL ****
  **** source install/local_setup.bash ****
+
+
+                                    ################# TO RUN ANY PACKAGE #################
+
+
+
 
  
 
