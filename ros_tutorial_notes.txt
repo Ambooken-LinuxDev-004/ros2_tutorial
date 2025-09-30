@@ -204,7 +204,12 @@ colcon build --packages-select <package_name> - Builds that particular package.(
 e.g. colcon build --packages-select my_package
 
  **** NOTE: AFTER BUILDING A NEW PACKAGE, MAKE SURE TO SOURCE IT, FOR USING THAT PACKAGE IN A NEW TERMINAL ****
- **** source install/local_setup.bash ****
+ **** source install/local_setup.bash (TRY TO DO IT IN A NEW TERMINAL)****
+
+ rosdep install -i --from-path src --rosdistro humble -y - It’s good practice to run rosdep in the root of your workspace (ros2_ws) to check for missing dependencies before building.
+
+ rosdep update - to initialize rosdep installation
+ 
 
 
                                     ################# TO RUN ANY PACKAGE #################
