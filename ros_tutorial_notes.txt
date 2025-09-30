@@ -152,6 +152,20 @@ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc - The command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_ws/src/some_ros_package.
 
 
+colcon build - To build your packages.
+
+ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name> - for creating a new package in ROS 2.
+NOTE:- ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name> - for creating a Python based package.
+e.g. ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
+
+colcon build --packages-select <package_name> - Builds that particular package.(if there are too many packages in the workspace, then if we use "colcon build", it takes a long time, instead use this).
+e.g. colcon build --packages-select my_package
+
+ **** NOTE: AFTER BUILDING A NEW PACKAGE, MAKE SURE TO SOURCE IT, FOR USING THAT PACKAGE IN A NEW TERMINAL ****
+ **** source install/local_setup.bash ****
+
+ 
+
 
 
 
