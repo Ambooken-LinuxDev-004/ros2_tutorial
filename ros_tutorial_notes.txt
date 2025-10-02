@@ -144,6 +144,8 @@ ros2 run turtlesim turtlesim_node --ros-args --log-level WARN - To set the defau
 ros2 launch - start up your entire system(all nodes and their configurations at once).
 e.g. ros2 launch turtlesim multisim.launch.py  - launch multiple(2) turtlesim nodes.
 
+ros2 launch <package_name> <launch_file_name> - to launch file.
+
 
 
                                         ################# ROS 2 BAG #################
