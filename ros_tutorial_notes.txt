@@ -214,7 +214,48 @@ e.g. colcon build --packages-select my_package
  
 
 
+                                    ################# URDF #################
+
+
+URDF - Unified Robotics Description Format(it is saved as .xml file). It describes visual, physics, and connections of a robot with joints and links.
+
+Link - used to describe a segment of a robot(defines visual, collision and inertial properties). Geometry and Origin are used in Visual and Collision properties to describe the Shape and Location of link.
+
+NOTE:- To get accurate models, obtain model from any 3D Modelling Software(e.g Solidworks) and export the .stl files for the geometry.
+
+Types of geometry - Box(<box size="x y z"/>), Sphere(<sphere radius="r"/>), Cylinder(<cylinder radius="r" length="l"/>), Mesh(<mesh filename="file_path" scale="x y z"/>)
+
+NOTE:- For Meshes the file types can be .stl or .dae files
+
+Origin - define rotations(using yaw(z)-pitch(y)-roll(x)) and translations(using x, y, z in meters), relative to link's coordinate frame. Order of rotation for rpy is ZYX(first X, then Y and then Z).
+
+NOTE:- The Rotation operation is applied first and then translation.
+
+For visual and collision, Origin describes how geometry is transformed relative to link's frame and for inertial, Origin describes the location of center of mass relative to link's frame.
+
+<origin rpy="r p y" xyz="x y z"/>
+
+Axis colors:- X(Red), Y(Green), Z(Blue).
+
+Material - used to define colors and transparency of color(using rgba).
+
+<material name="color_name">
+<color rgba="r g b a"/>
+</material>
+
+e.g red-rgba(1001), green-rgba(0101), blue-rgba(0011) etc..
+
+Collision - describe bounding shape around link for collision detection.(use simplified shape for faster calibration).
+
+Inertial - used to describe inertia[kg-m^2] about link's center of mass and mass[kg] of link.
+
+
+
                                     ################# TO RUN ANY PACKAGE #################
+
+
+
+
 
 
 
