@@ -181,28 +181,28 @@ The log directory contains various logging information about each colcon invocat
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws - create a directory (ros2_ws) to contain our workspace.
 
-colcon build --symlink-install - To create symbolic links(symlinks) to the original files in the source or build directories instead of making copies.
+** colcon build --symlink-install - To create symbolic links(symlinks) to the original files in the source or build directories instead of making copies.
 
-source install/setup.bash - To add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment.
+** source install/setup.bash - To add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment.
 
-echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
-echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
+** echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+** echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
 
 The above command colcon_cd allows you to quickly change the current working directory of your shell to the directory of a package. As an example colcon_cd some_ros_package would quickly bring you to the directory ~/ros2_ws/src/some_ros_package.
 
-colcon build - To build your packages.
+** colcon build - To build your packages.
 
 
 
                                     ################# PACKAGE #################
 
 
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name> - for creating a new package in ROS 2.
+** ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name> - for creating a new C++ package in ROS 2.
 
-NOTE:- ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name> - for creating a Python based package.
+NOTE:- ** ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name> - for creating a Python based package.
 e.g. ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
 
-colcon build --packages-select <package_name> - Builds that particular package.(if there are too many packages in the workspace, then if we use "colcon build", it takes a long time, instead use this).
+** colcon build --packages-select <package_name> - Builds that particular package.(if there are too many packages in the workspace, then if we use "colcon build", it takes a long time, instead use this).
 e.g. colcon build --packages-select my_package
 
  **** NOTE: AFTER BUILDING A NEW PACKAGE, MAKE SURE TO SOURCE IT, FOR USING THAT PACKAGE IN A NEW TERMINAL ****
