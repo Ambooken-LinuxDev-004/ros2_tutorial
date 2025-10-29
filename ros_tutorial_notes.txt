@@ -40,6 +40,8 @@ ros2 topic find <topic_type> - to list available topics of given type.
 
 ros2 topic info <topic_name> - to check number of publishers and subscribers.
 
+ros2 topic info <topic_name> --verbose - to get more info about the topic (like nodes etc..)
+
 NOTE :- Publishers and subscribers must send and receive the same type of message to communicate.
 e.g geometry_msgs/msg/Twist - This means that in the package geometry_msgs there is a msg called Twist.
 
