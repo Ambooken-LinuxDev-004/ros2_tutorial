@@ -30,6 +30,9 @@ ros2 run rqt_graph rqt_graph - to run rqt graph.
                                         ################# TOPIC #################
 
 
+** PRESS TAB TWICE TO SEE EXTRA DETAILS IN TERMINAL ABOUT A TOPIC **
+
+
 ros2 topic list - shows list of topics. *** 
 
 ros2 topic list -t - shows type of topic.
