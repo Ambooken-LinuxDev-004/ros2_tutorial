@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arduinobot"> <!-- Since we are using XACRO
+    Model and not plain URDF, we need to indicate the definition of this format is located-->
+
+    <link name="world" /> <!--This
+    link doesn't belong to robot yet, but will only serve to anchor the manipulator to the world
+    reference frame and is also the parent of ala the other links that compose the robot and acts as
+    an interface link between robot and external world  -->
+
+    <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" /> <!--  rpy defines orientation and xyz defines position
+            relative to link it belongs to(here it is base link)-->
+            <geometry>
+                <mesh filename="package://arduinobot_description/meshes/base-support.stl"
+                    scale="0.01 0.01 0.01" /> <!-- scale is used to reduce the file size as it may be
+                large in all directions and also must specify origin of this mesh with respect to
+                base link(like where this mesh is located and how this mesh is oriented w.r.t base
+                link)-->
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="virtual_joint" type="fixed"> <!-- this joint is not a proper joint of robot but just
+        serve to attach the robot to the world and it of fixed type meaning this base link cannot
+        move or translate w.r.t frame world-->
+        <parent link="world" />
+        <child link="base_link" />
+        <origin rpy="0 0 0" xyz="0 0 0" /><!-- indicates how these two links are connected to each
+        other(their relative position and orientation(rpy = 000 means world and base links are
+        oriented in the same way, xyz = 000 means these links have same center) exactly oriented and
+        positioned)-->
+    </joint>
+
+</robot>

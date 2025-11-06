@@ -27,6 +27,7 @@ ros2 run rqt_graph rqt_graph - to run rqt graph.
 
 
 
+
                                         ################# TOPIC #################
 
 
@@ -153,6 +154,10 @@ ros2 launch <package_name> <launch_file_name> - to launch file.
 
 
 
+e.g. ros2 launch urdf_tutorial display.launch.py   model:=$(realpath ~/Tutorials/ROS/ros2_tutorial/ros2_ws/src/arduinobot_description/urdf/arduinobot.urdf.xacro)
+
+
+
                                         ################# ROS 2 BAG #################
 
 
@@ -224,9 +229,13 @@ e.g. colcon build --packages-select my_package
 
 URDF - Unified Robotics Description Format(it is saved as .xml file). It describes visual, physics, and connections of a robot with joints and links.
 
+**** command to install urdf package - sudo apt-get install ros-humble-urdf-tutorial**** 
+
 Link - used to describe a segment of a robot(defines visual, collision and inertial properties). Geometry and Origin are used in Visual and Collision properties to describe the Shape and Location of link.
 
 NOTE:- To get accurate models, obtain model from any 3D Modelling Software(e.g Solidworks) and export the .stl files for the geometry.
+
+EACH LINK CAN ONLY BE CONNECTED TO ONE PARENT WHEREAS EACH PARENT CAN HAVE MULTIPLE LINKS.
 
 Types of geometry - Box(<box size="x y z"/>), Sphere(<sphere radius="r"/>), Cylinder(<cylinder radius="r" length="l"/>), Mesh(<mesh filename="file_path" scale="x y z"/>)
 
